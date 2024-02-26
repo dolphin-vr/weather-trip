@@ -1,13 +1,15 @@
 // import './App.css'
-import { Modal } from "./components/Modal/Modal"
+import { GlobalStyle } from "./components/GlobalStyle";
+import { Main } from "./pages/Main";
 
 function App() {
 
   return (
     <>
-      <Modal />
+      <Main />
+      <GlobalStyle />
     </>
-  )
+  );
 }
 
 export default App
