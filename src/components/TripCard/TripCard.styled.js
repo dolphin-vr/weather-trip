@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Item = styled.li`
+	cursor: pointer;
 	width: 240px;
 	display: flex;
 	flex-direction: column;
