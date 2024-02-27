@@ -1,12 +1,12 @@
 // import './App.css'
 import { GlobalStyle } from "./components/GlobalStyle";
-import { Main } from "./pages/Main";
+import { MainPage } from "./pages/MainPage";
 
 function App() {
 
   return (
     <>
-      <Main />
+      <MainPage />
       <GlobalStyle />
     </>
   );

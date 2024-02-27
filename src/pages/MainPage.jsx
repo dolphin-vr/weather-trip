@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
-import serviceWeather from "../shared/weaterApi"
+import serviceWeather from "../shared/weaterApi";
 import { SearchTrip } from "../components/SearchTrip/SearchTrip";
 import { TripList } from "../components/TripList/TripList";
 import { Modal } from "../components/Modal/Modal";
+import { Bold, Layout, Main, Title } from "./MainPage.styled";
+import { Today } from "../components/Today/Today";
 
 const getSavedTrips = () => {
   const savedTrips = localStorage.getItem("trips");
@@ -13,8 +15,9 @@ const getSavedTrips = () => {
   return [];
 };
 
-export const Main = () => {
-	const [trips, setTrips] = useState(getSavedTrips);
+export const MainPage = () => {
+  const [trips, setTrips] = useState(getSavedTrips);
+  const [activeTrip, setActiveTrip] = useState({})
 	const [filter, setFilter] = useState("");
 	const [showModal, setShowModal] = useState(false);
 	const [weatherToday, setWeatherToday] = useState({});
@@ -29,10 +32,11 @@ export const Main = () => {
   }, [trips]);
 
 	const handleTripSelection = async(trip) => {
-		// add loader and error-handler
+    // add loader and error-handler
+    setActiveTrip(trip);
 		const today = await serviceWeather.getToday(trip.city);
 		setWeatherToday(today.days[0]);
-    console.log("weather today= ", today.days[0].conditions);
+    console.log("weather today= ", today);
 		const range = await serviceWeather.getRange(trip.city, trip.startDate, trip.endDate);
 		setWeatherRange(range)
 		console.log("weather range= ", range);
@@ -41,18 +45,19 @@ export const Main = () => {
 	const filteredTrips = trips.filter((el) => el.city.toLowerCase().startsWith(filter.toLowerCase()));
 
 	return (
-    <>
-      <h1>
-        Weather <span>Forecast</span>
-      </h1>
-      <SearchTrip filter={filter} onChangeFilter={handleFilter} />
-      <TripList trips={filteredTrips} handleClick={handleTripSelection} />
-      <button type="button" onClick={toggleModal}>
-        Add trip
-      </button>
-
-      {/* <p>{weatherToday.?days[0].?conditions}</p> */}
+    <Layout>
+      <Main>
+        <Title>
+          Weather<Bold>Forecast</Bold>
+        </Title>
+        <SearchTrip filter={filter} onChangeFilter={handleFilter} />
+        <TripList trips={filteredTrips} handleClick={handleTripSelection} />
+        <button type="button" onClick={toggleModal}>
+          Add trip
+        </button>
+      </Main>
+      <Today city={activeTrip.city} />
       {showModal && <Modal onSave={addTrip} onClose={toggleModal} />}
-    </>
+    </Layout>
   );
 }
