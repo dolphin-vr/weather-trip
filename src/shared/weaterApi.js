@@ -17,6 +17,12 @@ const getToday = async (city) => {
 	return data
 }
 
+export const serviceGetTodayWeather = async (city, sig) => {
+	requester.signal = sig;
+  const { data } = await requester.get(`${city.replaceAll(" ", "-")}/today`);
+  return data;
+};
+
 const getRange = async (city, startDate, endDate) => {
   const { data } = await requester.get(`${city.replaceAll(" ", "-")}/${dateISO(startDate)}/${dateISO(endDate)}`);
   return data;

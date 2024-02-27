@@ -19,3 +19,11 @@ export const dateISO = (date) => {
   const result = new Date(date);
   return `${result.getFullYear()}-${(result.getMonth() + 1).toString().padStart(2, 0)}-${result.getDate().toString().padStart(2, 0)}`;
 };
+
+export const weekDay = () => {
+  const options = {
+  weekday: "long",
+};
+  const today = new Date();
+  return today.toLocaleDateString("en-US", options).split(",").shift();
+}
