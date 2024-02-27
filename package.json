@@ -2,6 +2,7 @@
   "name": "weather-trip",
   "private": true,
   "version": "0.0.1",
+  "homepage": "https://dolphin-vr.github.io/weather-trip/",
   "author": "dolphin-vr",
   "type": "module",
   "scripts": {

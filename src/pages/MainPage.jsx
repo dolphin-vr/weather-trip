@@ -22,7 +22,7 @@ export const MainPage = () => {
 	const [filter, setFilter] = useState("");
 	const [showModal, setShowModal] = useState(false);
 	// const [weatherToday, setWeatherToday] = useState({});
-	const [weatherRange, setWeatherRange] = useState({});
+	// const [weatherRange, setWeatherRange] = useState({});
 
 	const handleFilter = filter => { setFilter(filter) };
   const toggleModal = () => setShowModal(!showModal);
@@ -35,11 +35,11 @@ export const MainPage = () => {
 	const handleTripSelection = async(trip) => {
     // add loader and error-handler
     setActiveTrip(trip);
-		const today = await serviceWeather.getToday(trip.city);
+		// const today = await serviceWeather.getToday(trip.city);
 		// setWeatherToday(today.days[0]);
-    console.log("weather today= ", today);
+    // console.log("weather today= ", today);
 		const range = await serviceWeather.getRange(trip.city, trip.startDate, trip.endDate);
-		setWeatherRange(range)
+		// setWeatherRange(range)
 		console.log("weather range= ", range);
 	}
 
