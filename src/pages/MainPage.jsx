@@ -4,8 +4,9 @@ import serviceWeather from "../shared/weaterApi";
 import { SearchTrip } from "../components/SearchTrip/SearchTrip";
 import { TripList } from "../components/TripList/TripList";
 import { Modal } from "../components/Modal/Modal";
-import { Bold, Layout, Main, Title } from "./MainPage.styled";
+import { Aside, Bold, Layout, Main, Title } from "./MainPage.styled";
 import { Today } from "../components/Today/Today";
+import { Timer } from "../components/Timer/Timer";
 
 const getSavedTrips = () => {
   const savedTrips = localStorage.getItem("trips");
@@ -20,7 +21,7 @@ export const MainPage = () => {
   const [activeTrip, setActiveTrip] = useState({})
 	const [filter, setFilter] = useState("");
 	const [showModal, setShowModal] = useState(false);
-	const [weatherToday, setWeatherToday] = useState({});
+	// const [weatherToday, setWeatherToday] = useState({});
 	const [weatherRange, setWeatherRange] = useState({});
 
 	const handleFilter = filter => { setFilter(filter) };
@@ -35,7 +36,7 @@ export const MainPage = () => {
     // add loader and error-handler
     setActiveTrip(trip);
 		const today = await serviceWeather.getToday(trip.city);
-		setWeatherToday(today.days[0]);
+		// setWeatherToday(today.days[0]);
     console.log("weather today= ", today);
 		const range = await serviceWeather.getRange(trip.city, trip.startDate, trip.endDate);
 		setWeatherRange(range)
@@ -47,16 +48,15 @@ export const MainPage = () => {
 	return (
     <Layout>
       <Main>
-        <Title>
-          Weather<Bold>Forecast</Bold>
-        </Title>
+        <Title>Weather<Bold>Forecast</Bold></Title>
         <SearchTrip filter={filter} onChangeFilter={handleFilter} />
         <TripList trips={filteredTrips} handleClick={handleTripSelection} />
-        <button type="button" onClick={toggleModal}>
-          Add trip
-        </button>
+        <button type="button" onClick={toggleModal}>Add trip</button>
       </Main>
-      <Today city={activeTrip.city} />
+      <Aside>
+        <Today city={activeTrip.city} />
+        <Timer startDate={activeTrip.startDate} />
+      </Aside>
       {showModal && <Modal onSave={addTrip} onClose={toggleModal} />}
     </Layout>
   );
