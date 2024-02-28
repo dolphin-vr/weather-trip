@@ -8,6 +8,7 @@ export const Title = styled.h2`
 `
 
 export const List = styled.ul`
+	width: 100%;
 	display: flex;
 	gap: 20px;
 	overflow-x: scroll;

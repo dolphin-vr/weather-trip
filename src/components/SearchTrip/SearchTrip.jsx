@@ -1,7 +1,10 @@
+import { Filter, Label, SvgIcon } from "./SearchTrip.styled";
+
 export const SearchTrip = ({filter, onChangeFilter})=>{
 	return (
-    <label>
-      <input value={filter} onChange={(ev) => onChangeFilter(ev.target.value)} />
-    </label>
+    <Label>
+      <Filter value={filter} placeholder="Search your trip" onChange={(ev) => onChangeFilter(ev.target.value)} />
+      <SvgIcon tag={"search"} />
+    </Label>
   );
 }

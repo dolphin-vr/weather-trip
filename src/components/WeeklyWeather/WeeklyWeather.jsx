@@ -48,7 +48,6 @@ export const WeeklyWeather = ({city, startDate, endDate}) => {
           {days.map((el) => (
             <Item key={el.datetimeEpoch}>
               <Day>{weekDay(el.datetime)}</Day>
-							{/* <Icon src={`${sprite}#${el.icon}`} alt={el.conditions} /> */}
 							<SvgIcon tag={el.icon}/>
 							<Temper>{Math.round(el.tempmax) }° / {Math.round(el.tempmin) }°</Temper>
             </Item>

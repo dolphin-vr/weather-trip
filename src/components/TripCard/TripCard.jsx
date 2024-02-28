@@ -1,4 +1,4 @@
-import { City, Item, Period, Photo } from "./TripCard.styled";
+import { City, Info, Item, Period, Photo } from "./TripCard.styled";
 
 const IMG_PATH = import.meta.env.VITE_IMAGES_URL;
 export const TripCard = ({ trip, onClick }) => {
@@ -6,12 +6,12 @@ export const TripCard = ({ trip, onClick }) => {
     return `${IMG_PATH}images/${str}/01.jpg`;
   };
   return (
-    <Item onClick={()=>onClick(trip)}>
+    <Item onClick={() => onClick(trip)}>
       <Photo src={imgUrl(trip.city)} alt={trip.city} />
-      <City>{trip.city}</City>
-      <Period>
-        {trip.startDate} - {trip.endDate}
-      </Period>
+      <Info>
+        <City>{trip.city}</City>
+        <Period>{trip.startDate} - {trip.endDate}</Period>
+      </Info>
     </Item>
   );
 };

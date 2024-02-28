@@ -12,7 +12,8 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: sans-serif, Helvetica, Arial, system-ui;
     font-size: 12px;
-	  line-height: 1.5;
+	  line-height: 1.2;
+    letter-spacing: 0.8px;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

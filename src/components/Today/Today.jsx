@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { weekDay } from "../../shared/utils/dates";
-import { City, SvgIcon, Temperature, WeekDay, Wrapper } from "./Today.styled";
+import { City, SvgIcon, Temperature, Unit, WeekDay, Wrapper } from "./Today.styled";
 import { serviceGetTodayWeather } from "../../shared/weaterApi";
 
 export const Today = ({ city }) => {
@@ -45,9 +45,12 @@ export const Today = ({ city }) => {
         <WeekDay>{weekDay()}</WeekDay>
         {showWeather && (
           <>
-            <SvgIcon tag={today.icon} />
-            <Temperature>{today.temp || ""}℃</Temperature>
-            <City>{today.city || ""}</City>
+            <Temperature>
+              <SvgIcon tag={today.icon} />
+              {Math.round(today.temp)}
+              <Unit>°C</Unit>
+            </Temperature>
+            <City>{city}</City>
           </>
         )}
         {error && <span>Error. Try again {error}</span>}
