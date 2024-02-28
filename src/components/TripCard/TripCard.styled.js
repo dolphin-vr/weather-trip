@@ -5,7 +5,6 @@ export const Item = styled.li`
 	width: 240px;
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
 `
 
 export const Photo = styled.img`
@@ -13,14 +12,17 @@ export const Photo = styled.img`
 	height: 240px;
 `
 
+export const Info = styled.div`
+  padding: 16px 16px;
+	border: 1px solid gray
+`;
 export const City = styled.p`
-  padding: 4px 16px;
-  font-size: 1.4em;
+	margin-bottom: 16px;
+  font-size: 16px;
   font-weight: 600;
 `;
 
 export const Period = styled.p`
-  padding: 4px 16px;
-  font-size: 1.2em;
+  /* font-size: 1.2em; */
   color: darkgrey;
 `;
