@@ -20,10 +20,10 @@ export const dateISO = (date) => {
   return `${result.getFullYear()}-${(result.getMonth() + 1).toString().padStart(2, 0)}-${result.getDate().toString().padStart(2, 0)}`;
 };
 
-export const weekDay = () => {
+export const weekDay = (day = todayDate()) => {
   const options = {
-  weekday: "long",
-};
-  const today = new Date();
+    weekday: "long",
+  };
+  const today = new Date(day);
   return today.toLocaleDateString("en-US", options).split(",").shift();
-}
+};

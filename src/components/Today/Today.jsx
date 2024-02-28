@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { weekDay } from "../../shared/utils/dates";
-import { City, Temperature, WeekDay, Wrapper } from "./Today.styled";
+import { City, SvgIcon, Temperature, WeekDay, Wrapper } from "./Today.styled";
 import { serviceGetTodayWeather } from "../../shared/weaterApi";
 
 export const Today = ({ city }) => {
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(false);
-  const [today, setToday] = useState({ temp: "", city: "" });
+  const [today, setToday] = useState({}); //temp: "", city: ""
 
   const controllerRef = useRef();
-	useEffect(() => {
+  useEffect(() => {
     if (!city) return;
     if (controllerRef.current) {
       controllerRef.current.abort();
@@ -20,10 +20,10 @@ export const Today = ({ city }) => {
         setLoader(true);
         setError(false);
         const responce = await serviceGetTodayWeather(city, controllerRef.current.signal);
-        setToday({ temp: responce.days[0].temp, city });
+        setToday(responce.days[0]); // { temp: responce.days[0].temp, city }
       } catch (error) {
-				if (error.code !== "ERR_CANCELED") {
-					// console.log('err-code= ', error.code)
+        if (error.code !== "ERR_CANCELED") {
+          // console.log('err-code= ', error.code)
           setError(true);
         }
       } finally {
@@ -37,18 +37,21 @@ export const Today = ({ city }) => {
     };
   }, [city]);
 
+  const showWeather =!loader&& Object.keys(today).length > 0;
   return (
-    <Wrapper>
-      <WeekDay>{weekDay()}</WeekDay>
-      {loader ? (
-        <span>Loading</span>
-      ) : (
-        <>
-          <Temperature>{today.temp || ""}</Temperature>
-          <City>{today.city || ""}</City>
-        </>
-			)}
-			{error && <span>Error. Try again { error }</span>}
-    </Wrapper>
+    <>
+      {loader && <span>Loading</span>}
+      <Wrapper>
+        <WeekDay>{weekDay()}</WeekDay>
+        {showWeather && (
+          <>
+            <SvgIcon tag={today.icon} />
+            <Temperature>{today.temp || ""}℃</Temperature>
+            <City>{today.city || ""}</City>
+          </>
+        )}
+        {error && <span>Error. Try again {error}</span>}
+      </Wrapper>
+    </>
   );
 };
