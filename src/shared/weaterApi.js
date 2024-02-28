@@ -28,4 +28,10 @@ const getRange = async (city, startDate, endDate) => {
   return data;
 };
 
+export const serviceGetRangeWeather = async (city, startDate, endDate, sig) => {
+  requester.signal = sig;
+  const { data } = await requester.get(`${city.replaceAll(" ", "-")}/${dateISO(startDate)}/${dateISO(endDate)}`);
+  return data;
+};
+
 export default { getToday, getRange };
