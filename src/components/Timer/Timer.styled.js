@@ -21,6 +21,12 @@ export const Number = styled.span`
   color: white;
 `;
 export const Unit = styled.span`
-	text-transform: capitalize;
+	text-transform: uppercase;
 	color: gray
+`
+
+export const Expired = styled.span`
+	font-size: 20px;
+	font-weight: 500;
+	text-transform: capitalize;
 `

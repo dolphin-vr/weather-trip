@@ -10,7 +10,6 @@ export const Today = ({ city }) => {
 
   const controllerRef = useRef();
 	useEffect(() => {
-		console.log('citi= ', city)
     if (!city) return;
     if (controllerRef.current) {
       controllerRef.current.abort();
@@ -24,7 +23,7 @@ export const Today = ({ city }) => {
         setToday({ temp: responce.days[0].temp, city });
       } catch (error) {
 				if (error.code !== "ERR_CANCELED") {
-					console.log('err-code= ', error.code)
+					// console.log('err-code= ', error.code)
           setError(true);
         }
       } finally {
@@ -37,7 +36,7 @@ export const Today = ({ city }) => {
       controllerRef.current.abort();
     };
   }, [city]);
-console.log(error)
+
   return (
     <Wrapper>
       <WeekDay>{weekDay()}</WeekDay>
