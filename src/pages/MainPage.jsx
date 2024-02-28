@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
-import serviceWeather from "../shared/weaterApi";
+// import serviceWeather from "../shared/weaterApi";
 import { SearchTrip } from "../components/SearchTrip/SearchTrip";
 import { TripList } from "../components/TripList/TripList";
 import { Modal } from "../components/Modal/Modal";
@@ -35,12 +35,9 @@ export const MainPage = () => {
 	const handleTripSelection = async(trip) => {
     // add loader and error-handler
     setActiveTrip(trip);
-		// const today = await serviceWeather.getToday(trip.city);
-		// setWeatherToday(today.days[0]);
-    // console.log("weather today= ", today);
-		const range = await serviceWeather.getRange(trip.city, trip.startDate, trip.endDate);
+		// const range = await serviceWeather.getRange(trip.city, trip.startDate, trip.endDate);
 		// setWeatherRange(range)
-		console.log("weather range= ", range);
+		// console.log("weather range= ", range);
 	}
 
 	const filteredTrips = trips.filter((el) => el.city.toLowerCase().startsWith(filter.toLowerCase()));
