@@ -23,6 +23,7 @@ concurrency:
 #Allow repo secrets
 env:
   VITE_WEATHERAPI_KEY: ${{ secrets.VITE_WEATHERAPI_KEY }}
+  VITE_IMAGES_URL: ${{ secrets.VITE_IMAGES_URL }}
 
 jobs:
   # Single deploy job since we're just deploying
