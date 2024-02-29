@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Icon } from "../Icon/Icon";
 
 export const Wrapper = styled.section`
-	width: 30%;
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
@@ -16,7 +15,7 @@ export const SvgIcon = styled(Icon)`
 `;
 
 export const WeekDay = styled.p`
-	font-size: 40px;
+	font-size: 36px;
 	font-weight: 700;
 `
 
@@ -33,18 +32,5 @@ export const Unit = styled.span`
 `
 
 export const City = styled.p`
-	font-size: 36px;
+	font-size: 30px;
 `
-
-// .send-btn::after {
-//     content: "";
-//     display: inline-block;
-//     position: absolute;
-//     top: 8px;
-//     right: 24px;
-//     width: 24px;
-//     height: 24px;
-//     background-image: url(../images/sprite.svg#send);
-//     background-size: 32px;
-// }
-// {`${sprite}#${tag}`}
