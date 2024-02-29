@@ -5,13 +5,17 @@ import App from "./App.jsx";
 
 const theme = {
   colors: {
-    background: "#efefef",
+    background: "#f1f1f1",
     white: "#ffffff",
-    gray: "#8A8A89",
-    mediumgray: "#363535",
-    lightgray: "#f9f9f9",
+    black: "#111111",
+    lightgray: "#c9c9c9",
+    gray: "#a7a7a7",
+    mediumgray: "#525252",
+    darkgray: "#3f3f3f",
     blue: "#3470FF",
-    activeblue: "#0B44CD",
+    activeblue: "#0b43c7",
+    navi: "#04043d",
+    red: "#c00000",
   },
   radii: {
     sm: "4px",

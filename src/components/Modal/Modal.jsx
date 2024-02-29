@@ -3,35 +3,77 @@ import { createPortal } from "react-dom";
 import { dateLocal, maxDate, todayDate } from "../../shared/utils/dates";
 import { Selector } from "../Selector/Selector";
 import { DatePicker } from "../DatePicker/DatePicker";
-import { Backdrop, BtnClose, Form } from "./Modal.styled";
+import { Backdrop, BtnCancel, BtnClose, BtnSave, ErrorMsg, Fields, Footer, Form, Label, Star, SvgIcon, Title } from "./Modal.styled";
+import { useEffect } from "react";
 
 const modalRoot = document.querySelector("#modal-root");
 
 export const Modal = ({ onSave, onClose }) => {
+  const [city, setCity] = useState();
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
+  const [showErrorMsg, setShowErrorMsg] = useState(false);
+
   const today = todayDate();
   const lastDate = maxDate(todayDate(), 15);
-  const [startDate, setStartDate] = useState(today);
-  const [endDate, setEndDate] = useState(lastDate);
-  const [city, setCity] = useState();
+
+  useEffect(() => {
+    const close = (e) => {
+      if (e.keyCode === 27) {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, [onClose]);
+
+  const handleBackdropClick = (event) => {
+    if (event.currentTarget === event.target) {
+      onClose();
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-		onSave({ city, startDate, endDate });
-		onClose();
+    if (city && startDate && endDate) {
+      onSave({ city, startDate, endDate });
+      onClose();
+    } else {
+      setShowErrorMsg(true)
+    }
   };
 
   return createPortal(
-    <Backdrop>
+    <Backdrop onClick={handleBackdropClick}>
       <Form onSubmit={handleSubmit}>
-        <BtnClose type="button" >X</BtnClose>
-        <h1>Create trip</h1>
-        <Selector handleSelector={setCity} />
-        <DatePicker label={"Start date:"} name={"start"} minDate={today} maxDate={endDate} handleChange={setStartDate} />
-        <DatePicker label={"End date:"} name={"end"} minDate={startDate} maxDate={lastDate} handleChange={setEndDate} />
-        <button type="submit">Save</button>
-        <p>{city}</p>
-        <p>{dateLocal(startDate)}</p>
-        <p>{dateLocal(endDate)}</p>
+        <BtnClose type="button" onClick={onClose}>
+          <SvgIcon tag={"close"} />
+        </BtnClose>
+        <Title>Create trip</Title>
+        <Fields>
+          <Label>
+            <Star>* </Star>City
+          </Label>
+          <Selector handleSelector={setCity} />
+          <Label>
+            <Star>* </Star>Start date:
+          </Label>
+          <DatePicker name={"start"} minDate={today} maxDate={endDate || lastDate} handleChange={setStartDate} />
+          <Label>
+            <Star>* </Star>End date:
+          </Label>
+          <DatePicker name={"end"} minDate={startDate || today} maxDate={lastDate} handleChange={setEndDate} />
+          <p>{city}</p>
+          <p>{dateLocal(startDate)}</p>
+          <p>{dateLocal(endDate)}</p>
+        </Fields>
+        {showErrorMsg && <ErrorMsg>All fields are required</ErrorMsg>}
+        <Footer>
+          <BtnCancel type="button" onClick={onClose}>
+            Cancel
+          </BtnCancel>
+          <BtnSave type="submit">Save</BtnSave>
+        </Footer>
       </Form>
     </Backdrop>,
     modalRoot

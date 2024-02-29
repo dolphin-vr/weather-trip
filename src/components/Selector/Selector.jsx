@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BtnOpen, Input, Label, Option, Options, Wrapper } from "./Selector.styled";
+import { BtnOpen, Input, Option, Options, SvgIcon, Wrapper } from "./Selector.styled";
 import cities from '../../assets/cities.json'
 
 export const Selector = ({ handleSelector})=>{
@@ -22,7 +22,6 @@ export const Selector = ({ handleSelector})=>{
 
   return (
     <Wrapper>
-      <Label>City</Label>
       <Input type="text" name="city" placeholder="Please select a city"
         value={filter}
         onChange={(e) => handleChange(e.target.value)}
@@ -30,8 +29,8 @@ export const Selector = ({ handleSelector})=>{
         onBlur={() => setShowList(false)}
       />
       <BtnOpen type="button"
-        onClick={() => { setShowList(!showList); }}>
-        {showList ? "^" : "V"}
+        onClick={() => { setShowList(!showList); }}><SvgIcon tag={showList ? "up" : "down"}/>
+        {}
       </BtnOpen>
       <Options $isopen={showList}>
         {filtered.map((el) => ( <Option key={el} onClick={() => onClick(el)}>{el}</Option> ))}
