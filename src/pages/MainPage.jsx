@@ -6,7 +6,7 @@ import { Aside, Bold, Layout, Main, Title } from "./MainPage.styled";
 import { Today } from "../components/Today/Today";
 import { Timer } from "../components/Timer/Timer";
 import { WeeklyWeather } from "../components/WeeklyWeather/WeeklyWeather";
-import { TripGallery } from "../components/TripGallery/TripGallery";
+import { TripList } from "../components/TripList/TripList";
 
 const getSavedTrips = () => {
   const savedTrips = localStorage.getItem("trips");
@@ -48,7 +48,8 @@ export const MainPage = () => {
           Weather <Bold>Forecast</Bold>
         </Title>
         <SearchTrip filter={filter} onChangeFilter={handleFilter} />
-        <TripGallery trips={filteredTrips} handleAdd={toggleModal} handleDelete={deleteTrip} handleSelect={handleTripSelection} />
+        {/* <CityList trips={filteredTrips} /> */}
+        <TripList trips={filteredTrips} handleAdd={toggleModal} handleDelete={deleteTrip} handleClick={handleTripSelection} />
         {/* <TripList trips={filteredTrips} handleClick={handleTripSelection} /> */}
         {/* <button type="button" onClick={toggleModal}>Add trip</button> */}
         <WeeklyWeather city={activeTrip.city} startDate={activeTrip.startDate} endDate={activeTrip.endDate} />

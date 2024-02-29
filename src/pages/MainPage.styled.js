@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Layout = styled.div`
 	max-width: 1440px;
-	height: 100hv;
+	height: 100vh;
+	height: 680px;
 	margin: 0 auto;
 	display: flex;
 `
@@ -24,12 +25,13 @@ export const Bold = styled.span`
 `
 
 export const Aside = styled.aside`
-	min-width: 260px;
-	flex-basis: 300px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
-	align-items: center;
-	color: white;
-	background-color: navy;
-`
+  min-width: 260px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.navy};
+  /* background-color: navy; */
+`;

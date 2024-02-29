@@ -12,18 +12,18 @@ export const Filter = styled.input`
   height: 100%;
   padding: 8px 8px 8px 48px;
   font-size: 14px;
-	font-weight: 500;
+  font-weight: 500;
   border: none;
   border-radius: 8px;
-  background-color: lightgray;
+  background-color: ${({ theme }) => theme.colors.lightgray};
 
   &::placeholder {
     font-size: 12px;
     color: gray;
   }
-	&:focus{
-		outline: none;
-	}
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const SvgIcon = styled(Icon)`
