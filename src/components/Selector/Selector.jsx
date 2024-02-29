@@ -5,7 +5,7 @@ import cities from '../../assets/cities.json'
 export const Selector = ({ handleSelector})=>{
   const [showList, setShowList] = useState(false);
   const [filtered, setFiltered] = useState(cities);
-  const [filter, setFilter] = useState();
+  const [filter, setFilter] = useState("");
 
   const handleChange = (str) => {
     setFiltered(cities.filter((el) => el.toLowerCase().startsWith(str.toLowerCase())));

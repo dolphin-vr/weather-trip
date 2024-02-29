@@ -15,14 +15,15 @@ export const Item = styled.li`
 `
 
 export const Number = styled.span`
-  font-size: 3em;
+  font-size: 30px;
   line-height: 1.1;
   font-weight: 900;
   color: white;
 `;
 export const Unit = styled.span`
+	font-size: 11px;
 	text-transform: uppercase;
-	color: gray
+	color: gray;
 `
 
 export const Expired = styled.span`

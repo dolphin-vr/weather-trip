@@ -10,6 +10,7 @@ export const Layout = styled.div`
 export const Main = styled.main`
 	width: 70%;
 	padding: 32px;
+	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
@@ -23,7 +24,8 @@ export const Bold = styled.span`
 `
 
 export const Aside = styled.aside`
-	width: 30%;
+	min-width: 260px;
+	flex-basis: 300px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
