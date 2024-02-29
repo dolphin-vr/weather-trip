@@ -18,16 +18,17 @@ export const Gallery = styled.section`
 `;
 
 export const BtnAdd = styled.button`
-	width: 200px;
-	height: 200px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 24px;
-	background-color: lightgray;
-	border: none;
-	border-radius: 4px;
-`
+  cursor: pointer;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  background-color: lightgray;
+  border: none;
+  border-radius: 4px;
+`;
 export const SvgIcon = styled(Icon)`
 	width: 32px;
 	height: 32px;

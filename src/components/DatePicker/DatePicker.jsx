@@ -1,22 +1,27 @@
 import { useState } from 'react';
-import { Calendar, DateField, Field, Label } from './DatePicker.styled';
+import { BtnText, Calendar, DateField, SvgIcon } from './DatePicker.styled';
 import { dateISO, dateLocal } from "../../shared/utils/dates";
+import { useRef } from 'react';
 
-export const DatePicker = ({ label, name, minDate, maxDate, handleChange }) => {
-  const [field, setField] = useState();
+export const DatePicker = ({ name, minDate, maxDate, handleChange }) => {
+  const [field, setField] = useState("Select date");
+  const fieldRef = useRef(null);
+
+  const handleClick = () => {
+    fieldRef.current.showPicker();
+  };
 
   return (
       <DateField>
-        <Label>{label}</Label>
-        <Field type="text" name={name + "Value"} placeholder="Select date" value={dateLocal(field)} readOnly />
-        <Calendar type="date" name={name}
+        <Calendar ref={fieldRef} type="date" name={name}
           min={dateISO(minDate)}
           max={dateISO(maxDate)}
           onChange={(e) => {
             handleChange(e.target.value);
-            setField(e.target.value);
+            setField(dateLocal(e.target.value));
           }}
-        />
+      />
+      <BtnText type='button' onClick={handleClick} >{ field}<SvgIcon tag={"calendar"}/></BtnText>
       </DateField>
   );
 };
