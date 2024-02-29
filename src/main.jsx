@@ -14,7 +14,7 @@ const theme = {
     darkgray: "#3f3f3f",
     blue: "#3470FF",
     activeblue: "#0b43c7",
-    navi: "#04043d",
+    navy: "#04043d",
     red: "#c00000",
   },
   radii: {

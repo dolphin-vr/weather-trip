@@ -117,5 +117,11 @@ export const BtnSave = styled.button`
 `;
 
 export const ErrorMsg = styled.span`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 88px;
+  font-size: 18px;
+  font-weight: 500;
   color: ${({ theme }) => theme.colors.red};
 `;

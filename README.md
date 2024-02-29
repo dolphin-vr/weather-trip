@@ -1,9 +1,11 @@
 # weather-trip
 
-week weather: logic + css
-trip list: del trip, add-btn css, paging, css
-filter: css
-modal: css
+
+#### to do
+trip list: paging, ??css
+week weather: paging  ??(logic + css)
+modal: req fields error => all cases
 google auth
-global css
+global css, fonts
 aside: colors
+del-trip: yes /no

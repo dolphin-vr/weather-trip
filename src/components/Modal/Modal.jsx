@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { dateLocal, maxDate, todayDate } from "../../shared/utils/dates";
+import { maxDate, todayDate } from "../../shared/utils/dates";
 import { Selector } from "../Selector/Selector";
 import { DatePicker } from "../DatePicker/DatePicker";
 import { Backdrop, BtnCancel, BtnClose, BtnSave, ErrorMsg, Fields, Footer, Form, Label, Star, SvgIcon, Title } from "./Modal.styled";
-import { useEffect } from "react";
 
 const modalRoot = document.querySelector("#modal-root");
 
@@ -36,6 +35,7 @@ export const Modal = ({ onSave, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (city && startDate && endDate) {
+      setShowErrorMsg(false);
       onSave({ city, startDate, endDate });
       onClose();
     } else {
@@ -63,9 +63,9 @@ export const Modal = ({ onSave, onClose }) => {
             <Star>* </Star>End date:
           </Label>
           <DatePicker name={"end"} minDate={startDate || today} maxDate={lastDate} handleChange={setEndDate} />
-          <p>{city}</p>
+          {/* <p>{city}</p>
           <p>{dateLocal(startDate)}</p>
-          <p>{dateLocal(endDate)}</p>
+          <p>{dateLocal(endDate)}</p> */}
         </Fields>
         {showErrorMsg && <ErrorMsg>All fields are required</ErrorMsg>}
         <Footer>

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { BtnOpen, Input, Option, Options, SvgIcon, Wrapper } from "./Selector.styled";
 import cities from '../../assets/cities.json'
 
-export const Selector = ({ handleSelector})=>{
+export const Selector = ({ handleSelector, onChange})=>{
   const [showList, setShowList] = useState(false);
   const [filtered, setFiltered] = useState(cities);
   const [filter, setFilter] = useState("");
@@ -16,6 +16,7 @@ export const Selector = ({ handleSelector})=>{
     setShowList(false);
     setFiltered(cities);
     handleSelector(str);
+    onChange(true);
   };
 	useEffect(() => {
   }, [filter])

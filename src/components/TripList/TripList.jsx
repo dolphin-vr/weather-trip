@@ -1,12 +1,17 @@
 import { TripCard } from "../TripCard/TripCard";
-import { List } from "./TripList.styled";
+import { BtnAdd, Item, List, SvgIcon } from "./TripList.styled";
 
-export const TripList = ({ trips, handleClick, handleDelete }) => {
+export const TripList = ({ trips, handleClick, handleAdd, handleDelete }) => {
   return (
     <List>
       {trips.map((el) => (
-        <TripCard key={el.id} trip={el} onClick={handleClick} onDelete={handleDelete} />
+        <Item key={el.id}>
+          <TripCard trip={el} onClick={handleClick} onDelete={handleDelete} />
+        </Item>
       ))}
+      <Item>
+        <BtnAdd type="button" onClick={handleAdd}><SvgIcon tag={"add"} />Add trip</BtnAdd>
+      </Item>
     </List>
   );
 };
