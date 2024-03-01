@@ -37,10 +37,7 @@ export const MainPage = () => {
     setActiveTrip(trip);
 	}
 
-  // console.log("trips len= ", trips.length);
-  // console.log("filter= ", Boolean(filter));
 	const filteredTrips =trips.length>0 && filter ? trips.filter((el) => el.city.toLowerCase().startsWith(filter.toLowerCase())) :[...trips];
-  // console.log("filt-trips= ", filteredTrips);
 
 	return (
     <Layout>
@@ -49,7 +46,6 @@ export const MainPage = () => {
           Weather <Bold>Forecast</Bold>
         </Title>
         <SearchTrip filter={filter} onChangeFilter={handleFilter} />
-        {/* <TripList trips={filteredTrips} handleAdd={toggleModal} handleDelete={deleteTrip} handleSelect={handleTripSelection} /> */}
         <TripGallery trips={filteredTrips} handleAdd={toggleModal} handleDelete={deleteTrip} handleSelect={handleTripSelection} />
         <WeeklyWeather city={activeTrip.city} startDate={activeTrip.startDate} endDate={activeTrip.endDate} />
       </Main>
