@@ -5,7 +5,7 @@ export const List = styled.ul`
   display: flex;
   justify-content: start;
   gap: 40px;
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
 	overflow-x: hidden;
 	/* outline: 1px solid orange; */
 `;

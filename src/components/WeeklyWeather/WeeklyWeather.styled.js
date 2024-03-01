@@ -2,17 +2,21 @@ import styled from "styled-components";
 import { Icon } from "../Icon/Icon";
 
 export const Weekly = styled.section`
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
 `
 
 export const Title = styled.h2`
 `
 
 export const List = styled.ul`
-	width: 100%;
-	display: flex;
-	gap: 20px;
-	overflow-x: scroll;
-`
+  width: 100%;
+  display: flex;
+  gap: 30px;
+  overflow-x: scroll;
+  overflow-x: hidden;
+`;
 export const Item = styled.li`
 	width: 80px;
 	flex-shrink: 0;

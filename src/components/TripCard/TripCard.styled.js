@@ -33,6 +33,7 @@ export const City = styled.p`
 
 export const Period = styled.p`
   /* font-size: 1.2em; */
+  letter-spacing: 0.4px;
   color: darkgrey;
 `;
 

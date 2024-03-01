@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BtnDelete, City, Info, Card, Period, Photo, SvgIcon } from "./TripCard.styled";
+import { dateLocal } from "../../shared/utils/dates";
 
 const IMG_PATH = import.meta.env.VITE_IMAGES_URL;
   const imgUrl = (str) => {
@@ -14,7 +15,7 @@ export const TripCard = ({ trip, onClick, onDelete }) => {
       <Photo src={imgUrl(trip.city)} alt={trip.city} />
       <Info>
         <City>{trip.city}</City>
-        <Period>{trip.startDate} - {trip.endDate}</Period>
+        <Period>{dateLocal(trip.startDate)} - {dateLocal(trip.endDate)}</Period>
       </Info>
       {isHovered&&<BtnDelete onClick={(e)=>onDelete(e, trip.id)}><SvgIcon tag={"delete"}/></BtnDelete>}
     </Card>
