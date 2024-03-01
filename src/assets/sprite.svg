@@ -26,6 +26,24 @@
 <symbol id="calendar" viewBox="0 0 64 64">
 <path d="M20 24h8v8h-8zM32 24h8v8h-8zM44 24h8v8h-8zM8 48h8v8h-8zM20 48h8v8h-8zM32 48h8v8h-8zM20 36h8v8h-8zM32 36h8v8h-8zM44 36h8v8h-8zM8 36h8v8h-8zM52 0v4h-8v-4h-28v4h-8v-4h-8v64h60v-64h-8zM56 60h-52v-44h52v44z"></path>
 </symbol>
+<symbol id="first" viewBox="0 0 64 64">
+<path d="M8 56v-48h8v22l20-20v20l20-20v44l-20-20v20l-20-20v22z"></path>
+</symbol>
+<symbol id="last" viewBox="0 0 64 64">
+<path d="M56 8v48h-8v-22l-20 20v-20l-20 20v-44l20 20v-20l20 20v-22z"></path>
+</symbol>
+<symbol id="backward" viewBox="0 0 64 64">
+<path d="M36 10v20l20-20v44l-20-20v20l-22-22z"></path>
+</symbol>
+<symbol id="forward" viewBox="0 0 64 64">
+<path d="M32 54v-20l-20 20v-44l20 20v-20l22 22z"></path>
+</symbol>
+<symbol id="prev" viewBox="0 0 64 64">
+<path d="M16 56v-48h8v22l20-20v44l-20-20v22z"></path>
+</symbol>
+<symbol id="next" viewBox="0 0 64 64">
+<path d="M48 8v48h-8v-22l-20 20v-44l20 20v-22z"></path>
+</symbol>
 
 <symbol id="clear-day" viewBox="0 0 32 32">
 <path fill="#f9c100" style="fill: var(--color1, #f9c100)" d="M22.023 15.921c0 3.37-2.732 6.102-6.102 6.102s-6.102-2.732-6.102-6.102c0-3.37 2.732-6.102 6.102-6.102s6.102 2.732 6.102 6.102z"></path>

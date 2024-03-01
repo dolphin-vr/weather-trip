@@ -4,7 +4,7 @@ import { Icon } from "../Icon/Icon";
 export const Card = styled.div`
   cursor: pointer;
   position: relative;
-  width: 180px;
+  width: 182px;
   /* flex-basis: 220px; */
   /* flex-shrink: 0; */
   display: flex;
