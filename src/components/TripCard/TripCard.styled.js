@@ -22,14 +22,14 @@ export const Info = styled.div`
   border-bottom-right-radius: 4px;
 `;
 export const City = styled.p`
-	margin-bottom: 16px;
+  margin-bottom: 16px;
   font-size: 16px;
   font-weight: 600;
 `;
 
 export const Period = styled.p`
   letter-spacing: 0.4px;
-  color: darkgrey;
+  color: ${({ theme }) => theme.colors.gray};
 `;
 
 export const BtnDelete = styled.button`
@@ -39,12 +39,14 @@ export const BtnDelete = styled.button`
   padding: 4px;
   border: none;
   background-color: transparent;
+  fill: ${({ theme }) => theme.colors.darkgray};
   &:hover,
   &.active {
     background-color: ${({ theme }) => theme.colors.gray};
+    fill: ${({ theme }) => theme.colors.red};
   }
 `;
 export const SvgIcon = styled(Icon)`
-	width: 24px;
-	height: 24px;
-`
+  width: 24px;
+  height: 24px;
+`;

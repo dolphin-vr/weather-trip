@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import { ThemeProvider } from "styled-components";
 import App from "./App.jsx";
-import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const theme = {
   colors: {
@@ -38,6 +38,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <App />
       </ThemeProvider>
     </GoogleOAuthProvider>
-    ;
   </React.StrictMode>
 );

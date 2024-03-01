@@ -2,11 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { weekDay } from "../../shared/utils/dates";
 import { City, SvgIcon, Temperature, Unit, WeekDay, Wrapper } from "./Today.styled";
 import { serviceGetTodayWeather } from "../../shared/weaterApi";
+import { Loader } from "../Loader/Loader";
 
 export const Today = ({ city }) => {
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(false);
-  const [today, setToday] = useState({}); //temp: "", city: ""
+  const [today, setToday] = useState({});
 
   const controllerRef = useRef();
   useEffect(() => {
@@ -36,12 +37,12 @@ export const Today = ({ city }) => {
     };
   }, [city]);
 
-  const showWeather =!loader&& Object.keys(today).length > 0;
+  const showWeather = !loader && Object.keys(today).length > 0;
   return (
     <>
-      {loader && <span>Loading</span>}
       <Wrapper>
         <WeekDay>{weekDay()}</WeekDay>
+        {loader && <Loader />}
         {showWeather && (
           <>
             <Temperature>

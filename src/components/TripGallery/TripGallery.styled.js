@@ -3,17 +3,9 @@ import { Icon } from "../Icon/Icon";
 
 export const Gallery = styled.section`
   min-height: 320px;
-  /* overscroll-behavior-x: auto; */
-  /* overscroll-behavior-x: contain; */
-  /* overscroll-behavior-x: none; */
-  /* overflow-wrap: normal; */
-  /* scroll-snap-align: start; */
-  /* flex-shrink: 1; */
   display: flex;
   flex-direction: column;
   gap: 24px;
-  /* justify-content: start; */
-  /* gap: 40px; */
 `;
 
 export const BtnAdd = styled.button`
@@ -24,7 +16,7 @@ export const BtnAdd = styled.button`
   justify-content: center;
   align-items: center;
   font-size: 24px;
-  background-color: lightgray;
+  background-color: ${({ theme }) => theme.colors.lightgray};
   border: none;
   border-radius: 4px;
 `;

@@ -1,17 +1,16 @@
 import { GoogleLogin } from "@react-oauth/google";
-import { PageTitle } from "../../components/PageTitle/PageTitle"
-import { Layout } from "./WelcomePage.styled"
+import { PageTitle } from "../../components/PageTitle/PageTitle";
+import { Layout } from "./WelcomePage.styled";
 
 export const WelcomePage = ({ onSignIn }) => {
-
-	return (
+  return (
     <Layout>
       <PageTitle />
       <p>Plan your trips and see the weather forecast</p>
       <GoogleLogin
         onSuccess={credentialResponse => {
-					localStorage.setItem("tripCredl", credentialResponse.credential);
-					onSignIn(credentialResponse.credential);
+          localStorage.setItem("tripCredl", credentialResponse.credential);
+          onSignIn(credentialResponse.credential);
         }}
         onError={() => {
           console.log("Login Failed");
@@ -20,4 +19,4 @@ export const WelcomePage = ({ onSignIn }) => {
       />
     </Layout>
   );
-}
+};

@@ -55,7 +55,8 @@ ul {
     background-color: transparent;
     border: 1px solid gray;
     border-radius: ${({ theme }) => theme.radii.sm};
-    transition: background-color ${({ theme }) => theme.effect.cubic};
+    transition: background-color ${({ theme }) => theme.effect.cubic}
+      fill  ${({ theme }) => theme.effect.cubic};
   }
 
 `;

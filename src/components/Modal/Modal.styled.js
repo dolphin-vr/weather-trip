@@ -19,7 +19,6 @@ export const Form = styled.form`
   max-width: calc(100vw - 48px);
   max-height: calc(100vh - 24px);
   width: 600px;
-  /* padding: 24px; */
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -44,7 +43,6 @@ export const BtnClose = styled.button`
   justify-content: center;
   align-items: center;
   border: none;
-  /* border-radius: 50%; */
   stroke: ${({ theme }) => theme.colors.gray};
   background-color: transparent;
   &:hover,
@@ -76,7 +74,6 @@ export const Star = styled.span`
 
 export const Footer = styled.div`
   width: 100%;
-  /* height: 64px; */
   padding: 24px;
   display: flex;
   gap: 24px;
@@ -102,7 +99,6 @@ export const BtnCancel = styled.button`
 `;
 export const BtnSave = styled.button`
   cursor: pointer;
-  /* display: inline-block; */
   height: 40px;
   padding: 12px 24px;
   font-size: 18px;
@@ -120,8 +116,8 @@ export const ErrorMsg = styled.span`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 88px;
-  font-size: 18px;
+  bottom: 96px;
+  font-size: 16px;
   font-weight: 500;
   color: ${({ theme }) => theme.colors.red};
 `;
