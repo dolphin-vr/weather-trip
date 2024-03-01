@@ -6,6 +6,8 @@ export const List = styled.ul`
   justify-content: start;
   gap: 40px;
   overflow-x: scroll;
+	overflow-x: hidden;
+	/* outline: 1px solid orange; */
 `;
 
 export const Item = styled.li`
@@ -16,7 +18,7 @@ export const Item = styled.li`
 `;
 
 export const BtnAdd = styled.button`
-  width: 180px;
+  width: 182px;
   height: 180px;
   display: flex;
   flex-direction: column;
