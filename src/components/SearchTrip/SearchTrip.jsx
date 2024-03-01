@@ -1,10 +1,16 @@
-import { Filter, Label, SvgIcon } from "./SearchTrip.styled";
+import { BtnSort, Filter, Label, SearchPanel, SvgIcon } from "./SearchTrip.styled";
 
-export const SearchTrip = ({ filter, onChangeFilter }) => {
+export const SearchTrip = ({ filter, onChangeFilter, onSort }) => {
   return (
-    <Label>
-      <Filter value={filter} placeholder="Search your trip" onChange={ev => onChangeFilter(ev.target.value)} />
-      <SvgIcon tag={"search"} />
-    </Label>
+    <SearchPanel>
+      <Label>
+        <Filter value={filter} placeholder="Search your trip" onChange={ev => onChangeFilter(ev.target.value)} />
+        <SvgIcon tag={"search"} />
+      </Label>
+      <BtnSort type="button" onClick={onSort}>
+        Sort trips by date
+        <SvgIcon tag={"sort-num-asc"} />
+      </BtnSort>
+    </SearchPanel>
   );
 };

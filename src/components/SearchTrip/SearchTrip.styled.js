@@ -1,6 +1,14 @@
 import styled from "styled-components";
 import { Icon } from "../Icon/Icon";
 
+export const SearchPanel = styled.section`
+  position: relative;
+  /* width: 300px; */
+  height: 48px;
+  display: flex;
+  gap: 48px;
+`;
+
 export const Label = styled.label`
   position: relative;
   width: 300px;
@@ -33,4 +41,17 @@ export const SvgIcon = styled(Icon)`
   left: 12px;
   width: 24px;
   height: 24px;
+`;
+
+export const BtnSort = styled.button`
+  position: relative;
+  width: 216px;
+  height: 100%;
+  padding: 8px 8px 8px 48px;
+  color: ${({ theme }) => theme.colors.darkgray};
+  background-color: ${({ theme }) => theme.colors.lightgray};
+  &:hover,
+  &.active {
+    background-color: ${({ theme }) => theme.colors.gray};
+  }
 `;

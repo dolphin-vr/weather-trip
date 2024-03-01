@@ -27,3 +27,4 @@ export const weekDay = (day = todayDate()) => {
   const today = new Date(day);
   return today.toLocaleDateString("en-US", options).split(",").shift();
 };
+

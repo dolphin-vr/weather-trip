@@ -23,7 +23,7 @@ export const Aside = styled.aside`
   width: 306px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   align-items: center;
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.navy};
