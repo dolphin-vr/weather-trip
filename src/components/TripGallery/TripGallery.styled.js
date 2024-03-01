@@ -2,10 +2,7 @@ import styled from "styled-components";
 import { Icon } from "../Icon/Icon";
 
 export const Gallery = styled.section`
-  /* height: 284px;
-  overflow-x: auto;
-  overflow-x: scroll;
-  overflow-x: hidden; */
+  min-height: 320px;
   /* overscroll-behavior-x: auto; */
   /* overscroll-behavior-x: contain; */
   /* overscroll-behavior-x: none; */

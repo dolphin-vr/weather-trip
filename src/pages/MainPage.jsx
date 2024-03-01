@@ -37,10 +37,10 @@ export const MainPage = () => {
     setActiveTrip(trip);
 	}
 
-  console.log("trips len= ", trips.length);
-  console.log("filter= ", Boolean(filter));
+  // console.log("trips len= ", trips.length);
+  // console.log("filter= ", Boolean(filter));
 	const filteredTrips =trips.length>0 && filter ? trips.filter((el) => el.city.toLowerCase().startsWith(filter.toLowerCase())) :[...trips];
-  console.log("filt-trips= ", filteredTrips);
+  // console.log("filt-trips= ", filteredTrips);
 
 	return (
     <Layout>

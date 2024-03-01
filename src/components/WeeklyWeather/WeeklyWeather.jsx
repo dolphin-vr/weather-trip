@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Day,  Item, List, SvgIcon, Temper, Title, Weekly } from "./WeeklyWeather.styled"
 import { serviceGetRangeWeather } from "../../shared/weaterApi";
 import { weekDay } from "../../shared/utils/dates";
+import { Pager } from "../Pager/Pager";
 
 export const WeeklyWeather = ({city, startDate, endDate}) => {
   const [loader, setLoader] = useState(false);
@@ -38,22 +39,27 @@ export const WeeklyWeather = ({city, startDate, endDate}) => {
 	}, [city, endDate, startDate]);
 	
 	const showWeather = !loader && days.length > 0;
+  const listRef = useRef(null);
+  const showControls = showWeather && days.length > 10;
 
 	return (
     <Weekly>
       <Title>Week</Title>
       {loader && <span>Loading</span>}
       {showWeather && (
-        <List>
-          {days.map((el) => (
+        <List ref={listRef}>
+          {days.map(el => (
             <Item key={el.datetimeEpoch}>
               <Day>{weekDay(el.datetime)}</Day>
-							<SvgIcon tag={el.icon}/>
-							<Temper>{Math.round(el.tempmax) }° / {Math.round(el.tempmin) }°</Temper>
+              <SvgIcon tag={el.icon} />
+              <Temper>
+                {Math.round(el.tempmax)}° / {Math.round(el.tempmin)}°
+              </Temper>
             </Item>
           ))}
         </List>
       )}
+      {showControls && <Pager listRef={listRef} shift={110} />}
       {error && <span>Error. Try again {error}</span>}
     </Weekly>
   );
