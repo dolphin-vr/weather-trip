@@ -20,10 +20,9 @@ export const Today = ({ city }) => {
         setLoader(true);
         setError(false);
         const responce = await serviceGetTodayWeather(city, controllerRef.current.signal);
-        setToday(responce.days[0]); // { temp: responce.days[0].temp, city }
+        setToday(responce.days[0]);
       } catch (error) {
         if (error.code !== "ERR_CANCELED") {
-          // console.log('err-code= ', error.code)
           setError(true);
         }
       } finally {

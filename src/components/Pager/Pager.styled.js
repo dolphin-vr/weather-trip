@@ -8,10 +8,21 @@ export const Panel = styled.ul`
 `
 
 export const Button = styled.button`
-	width: 32px;
-	height: 32px;
-	border-radius: 50%;
-`
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  /* stroke: ${({ theme }) => theme.colors.gray}; */
+  fill: ${({ theme }) => theme.colors.darkgray};
+  &:hover,
+  &.active {
+    background-color: ${({ theme }) => theme.colors.gray};
+  }
+  &:disabled {
+		cursor: default;
+    fill: ${({ theme }) => theme.colors.gray};
+    background-color: ${({ theme }) => theme.colors.lightgray};
+  }
+`;
 export const SvgIcon = styled(Icon)`
 	width: 24px;
 	height: 24px;

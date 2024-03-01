@@ -24,7 +24,6 @@ export const WeeklyWeather = ({city, startDate, endDate}) => {
 				setDays(responce.days);
       } catch (error) {
         if (error.code !== "ERR_CANCELED") {
-          // console.log('err-code= ', error.code)
           setError(true);
         }
       } finally {
