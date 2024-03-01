@@ -24,19 +24,14 @@ export const Item = styled.li`
 	flex-direction: column;
 	gap: 8px;
 	align-items: center;
-	/* border: 1px solid gray; */
 `
 
 export const Day = styled.span`
 	color: gray;
 `
 
-//  tooltip on img-hover?
+//  tooltip on img-hover
 export const SvgIcon = styled(Icon)`
-	width: 100%;
-	height: 100%;
-	width: 96px;
-	height: 96px;
 	width: 64px;
 	height: 64px;
 `

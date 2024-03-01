@@ -11,7 +11,6 @@ export const Button = styled.button`
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  /* stroke: ${({ theme }) => theme.colors.gray}; */
   fill: ${({ theme }) => theme.colors.darkgray};
   &:hover,
   &.active {

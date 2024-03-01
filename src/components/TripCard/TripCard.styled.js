@@ -5,15 +5,11 @@ export const Card = styled.div`
   cursor: pointer;
   position: relative;
   width: 182px;
-  /* flex-basis: 220px; */
-  /* flex-shrink: 0; */
   display: flex;
   flex-direction: column;
-  /* border-radius: 4px; */
 `;
 
 export const Photo = styled.img`
-  /* width: 100%; */
   height: 180px;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
@@ -32,7 +28,6 @@ export const City = styled.p`
 `;
 
 export const Period = styled.p`
-  /* font-size: 1.2em; */
   letter-spacing: 0.4px;
   color: darkgrey;
 `;

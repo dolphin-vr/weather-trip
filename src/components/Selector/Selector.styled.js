@@ -14,7 +14,6 @@ export const Label = styled.label`
    line-height: 1.28;
 `;
 export const Input = styled.input`
-  /* height: 28px; */
   padding: 8px 40px 8px 8px;
   outline: none;
   border: 1px solid ${({ theme }) => theme.colors.gray};
@@ -81,7 +80,6 @@ export const Options = styled.ul`
 export const Option = styled.li`
   cursor: context-menu;
   padding: 4px;
-  /* color: rgba(18, 20, 23, 0.2); */
   font-size: 16px;
   font-weight: 500;
   line-height: 1.25;
