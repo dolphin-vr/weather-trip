@@ -10,3 +10,10 @@ export const Layout = styled.div`
 	align-items: center;
   gap: 40px;
 `;
+
+export const ErrorMsg = styled.span`
+  margin-top: 32px;
+  font-size: 16px;
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.red};
+`;

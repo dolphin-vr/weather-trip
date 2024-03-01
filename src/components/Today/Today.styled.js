@@ -4,6 +4,7 @@ import { Icon } from "../Icon/Icon";
 export const Wrapper = styled.section`
   position: relative;
   min-height: 200px;
+  margin-top: 280px;
   display: flex;
   flex-direction: column;
   gap: 20px;
