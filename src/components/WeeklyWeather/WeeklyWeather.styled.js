@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { Icon } from "../Icon/Icon";
 
 export const Weekly = styled.section`
+	position: relative;
+	min-height: 210px;
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
@@ -27,14 +29,15 @@ export const Item = styled.li`
 `
 
 export const Day = styled.span`
-	color: gray;
-`
+  color: ${({ theme }) => theme.colors.gray};
+`;
 
-//  tooltip on img-hover
 export const SvgIcon = styled(Icon)`
 	width: 64px;
 	height: 64px;
 `
+
+// todo tooltip on img-hover
 export const Baloon = styled.span`
 `
 export const Temper = styled.span`

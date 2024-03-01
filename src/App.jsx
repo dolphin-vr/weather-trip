@@ -1,8 +1,6 @@
-// import './App.css'
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GlobalStyle } from "./components/GlobalStyle";
-import { MainPage } from "./pages/MainPage";
+import { MainPage } from "./pages/MainPage/MainPage";
 import { WelcomePage } from "./pages/WelcomePage/WelcomePage";
 import { jwtDecode } from "jwt-decode";
 

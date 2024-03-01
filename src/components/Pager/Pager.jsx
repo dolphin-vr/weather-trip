@@ -16,22 +16,30 @@ export const Pager = ({ listRef, shift }) => {
       case "backward":
         listRef.current.scrollBy({ top: 0, left: -itemWidth * 5, behavior: "smooth" });
         setIsLast(false);
-        if (listRef.current.scrollLeft===0){setIsFirst(true)}
+        if (listRef.current.scrollLeft === 0) {
+          setIsFirst(true);
+        }
         break;
       case "prev":
         listRef.current.scrollBy({ top: 0, left: -itemWidth, behavior: "smooth" });
         setIsLast(false);
-        if (listRef.current.scrollLeft===0){setIsFirst(true)}
+        if (listRef.current.scrollLeft === 0) {
+          setIsFirst(true);
+        }
         break;
       case "next":
         listRef.current.scrollBy({ top: 0, left: itemWidth, behavior: "smooth" });
         setIsFirst(false);
-        if (listRef.current.scrollLeft===listRef.current.scrollWidth - listRef.current.clientWidth){setIsLast(true);}
+        if (listRef.current.scrollLeft === listRef.current.scrollWidth - listRef.current.clientWidth) {
+          setIsLast(true);
+        }
         break;
       case "forward":
         listRef.current.scrollBy({ top: 0, left: itemWidth * 5, behavior: "smooth" });
         setIsFirst(false);
-        if (listRef.current.scrollLeft===listRef.current.scrollWidth - listRef.current.clientWidth){setIsLast(true);}
+        if (listRef.current.scrollLeft === listRef.current.scrollWidth - listRef.current.clientWidth) {
+          setIsLast(true);
+        }
         break;
       case "last":
         listRef.current.scrollTo({ top: 0, left: listRef.current.scrollWidth, behavior: "smooth" });

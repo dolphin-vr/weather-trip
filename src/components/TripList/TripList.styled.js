@@ -5,8 +5,7 @@ export const List = styled.ul`
   display: flex;
   justify-content: start;
   gap: 40px;
-	overflow-x: hidden;
-	/* outline: 1px solid orange; */
+  overflow-x: hidden;
 `;
 
 export const Item = styled.li`

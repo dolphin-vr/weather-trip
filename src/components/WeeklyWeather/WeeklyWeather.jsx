@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import { Day,  Item, List, SvgIcon, Temper, Title, Weekly } from "./WeeklyWeather.styled"
+import { Day, Item, List, SvgIcon, Temper, Title, Weekly } from "./WeeklyWeather.styled";
 import { serviceGetRangeWeather } from "../../shared/weaterApi";
 import { weekDay } from "../../shared/utils/dates";
 import { Pager } from "../Pager/Pager";
+import { Loader } from "../Loader/Loader";
 
-export const WeeklyWeather = ({city, startDate, endDate}) => {
+export const WeeklyWeather = ({ city, startDate, endDate }) => {
   const [loader, setLoader] = useState(false);
-	const [error, setError] = useState(false);
-	const [days, setDays] = useState([]);
+  const [error, setError] = useState(false);
+  const [days, setDays] = useState([]);
 
   const controllerRef = useRef();
   useEffect(() => {
@@ -20,8 +21,8 @@ export const WeeklyWeather = ({city, startDate, endDate}) => {
       try {
         setLoader(true);
         setError(false);
-				const responce = await serviceGetRangeWeather(city, startDate, endDate, controllerRef.current.signal);
-				setDays(responce.days);
+        const responce = await serviceGetRangeWeather(city, startDate, endDate, controllerRef.current.signal);
+        setDays(responce.days);
       } catch (error) {
         if (error.code !== "ERR_CANCELED") {
           setError(true);
@@ -35,16 +36,16 @@ export const WeeklyWeather = ({city, startDate, endDate}) => {
     return () => {
       controllerRef.current.abort();
     };
-	}, [city, endDate, startDate]);
-	
-	const showWeather = !loader && days.length > 0;
+  }, [city, endDate, startDate]);
+
+  const showWeather = !loader && days.length > 0;
   const listRef = useRef(null);
   const showControls = showWeather && days.length > 10;
 
-	return (
+  return (
     <Weekly>
       <Title>Week</Title>
-      {loader && <span>Loading</span>}
+      {loader && <Loader />}
       {showWeather && (
         <List ref={listRef}>
           {days.map(el => (
@@ -62,4 +63,4 @@ export const WeeklyWeather = ({city, startDate, endDate}) => {
       {error && <span>Error. Try again {error}</span>}
     </Weekly>
   );
-}
+};

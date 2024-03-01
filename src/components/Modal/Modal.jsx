@@ -17,7 +17,7 @@ export const Modal = ({ onSave, onClose }) => {
   const lastDate = maxDate(todayDate(), 15);
 
   useEffect(() => {
-    const close = (e) => {
+    const close = e => {
       if (e.keyCode === 27) {
         onClose();
       }
@@ -26,26 +26,26 @@ export const Modal = ({ onSave, onClose }) => {
     return () => window.removeEventListener("keydown", close);
   }, [onClose]);
 
-  const handleBackdropClick = (event) => {
+  const handleBackdropClick = event => {
     if (event.currentTarget === event.target) {
       onClose();
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     if (city && startDate && endDate) {
       setShowErrorMsg(false);
       onSave({ city, startDate, endDate });
       onClose();
     } else {
-      setShowErrorMsg(true)
+      setShowErrorMsg(true);
     }
   };
 
   return createPortal(
     <Backdrop onClick={handleBackdropClick}>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} autoComplete="off">
         <BtnClose type="button" onClick={onClose}>
           <SvgIcon tag={"close"} />
         </BtnClose>
@@ -64,7 +64,7 @@ export const Modal = ({ onSave, onClose }) => {
           </Label>
           <DatePicker name={"end"} minDate={startDate || today} maxDate={lastDate} handleChange={setEndDate} />
         </Fields>
-        {showErrorMsg && <ErrorMsg>All fields are required</ErrorMsg>}
+        {showErrorMsg && <ErrorMsg>* All fields are required</ErrorMsg>}
         <Footer>
           <BtnCancel type="button" onClick={onClose}>
             Cancel

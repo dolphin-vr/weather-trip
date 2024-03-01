@@ -2,16 +2,16 @@ import styled from "styled-components";
 import { Icon } from "../Icon/Icon";
 
 export const Wrapper = styled.div`
-	position: relative;
-	display: flex;
-	flex-direction: column;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 `;
 export const Label = styled.label`
-   margin-bottom: 8px;
-   color: gray;
-   font-size: 14px;
-   font-weight: 500;
-   line-height: 1.28;
+  margin-bottom: 8px;
+  color: ${({ theme }) => theme.colors.gray};
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.28;
 `;
 export const Input = styled.input`
   padding: 8px 40px 8px 8px;
@@ -19,7 +19,7 @@ export const Input = styled.input`
   border: 1px solid ${({ theme }) => theme.colors.gray};
   border-radius: 4px;
   background: transparent;
-  color: black;
+  color: ${({ theme }) => theme.colors.black};
   font-size: 18px;
   font-weight: 500;
   line-height: 1.11;
@@ -36,17 +36,17 @@ export const BtnOpen = styled.button`
   stroke: ${({ theme }) => theme.colors.gray};
 `;
 export const SvgIcon = styled(Icon)`
-   width: 24px;
-   height: 24px;
-`
+  width: 24px;
+  height: 24px;
+`;
 
 const getDisplay = props => {
-	if (props.$isopen) {
-		return "flex"
-	} else {
-		return 'none'
-	}
-}
+  if (props.$isopen) {
+    return "flex";
+  } else {
+    return "none";
+  }
+};
 
 export const Options = styled.ul`
   display: ${getDisplay};
