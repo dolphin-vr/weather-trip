@@ -63,9 +63,6 @@ export const Modal = ({ onSave, onClose }) => {
             <Star>* </Star>End date:
           </Label>
           <DatePicker name={"end"} minDate={startDate || today} maxDate={lastDate} handleChange={setEndDate} />
-          {/* <p>{city}</p>
-          <p>{dateLocal(startDate)}</p>
-          <p>{dateLocal(endDate)}</p> */}
         </Fields>
         {showErrorMsg && <ErrorMsg>All fields are required</ErrorMsg>}
         <Footer>

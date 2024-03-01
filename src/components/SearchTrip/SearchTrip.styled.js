@@ -2,10 +2,10 @@ import styled from "styled-components";
 import { Icon } from "../Icon/Icon";
 
 export const Label = styled.label`
-	position: relative;
-	width: 300px;
-	height: 48px;
-`
+  position: relative;
+  width: 300px;
+  height: 48px;
+`;
 
 export const Filter = styled.input`
   width: 100%;
@@ -18,8 +18,8 @@ export const Filter = styled.input`
   background-color: ${({ theme }) => theme.colors.lightgray};
 
   &::placeholder {
-    font-size: 12px;
-    color: gray;
+    font-size: 14px;
+    color: ${({ theme }) => theme.colors.darkgray};
   }
   &:focus {
     outline: none;
@@ -33,5 +33,4 @@ export const SvgIcon = styled(Icon)`
   left: 12px;
   width: 24px;
   height: 24px;
-  border-radius: 8px;
 `;

@@ -16,19 +16,7 @@ export const Label = styled.span`
   font-weight: 500;
 `;
 
-export const Field = styled.input`
-	width: 172px;
-	z-index: 2;
-	padding: 4px 8px;
-	font-size: inherit;
-	border: 1px solid black;
-	border-right: none;
-	border-top-left-radius: 4px;
-	border-bottom-left-radius: 4px;
-`;
-
 export const Calendar = styled.input`
-  /* width: 50%; */
   margin-left: auto;
   margin-right: 0;
   padding: 8px;

@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { ThemeProvider } from "styled-components";
 import App from "./App.jsx";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const theme = {
   colors: {
@@ -32,8 +33,11 @@ const theme = {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </GoogleOAuthProvider>
+    ;
   </React.StrictMode>
 );
