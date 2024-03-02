@@ -23,8 +23,7 @@ export const Selector = ({ handleSelector,  }) => {
     <Wrapper>
       <Input type="text" name="city" placeholder="Please select a city" value={filter}
         onChange={e => handleChange(e.target.value)}
-        onFocus={() => setShowList(true)}
-        onBlur={() => setShowList(false)} />
+        onFocus={() => setShowList(true)} />
       <BtnOpen
         type="button"
         onClick={() => {
