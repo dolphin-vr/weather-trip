@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const List = styled.ul`
-  margin: 200px auto;
+  /* margin: 200px auto; */
   display: flex;
   gap: 20px;
 `;
@@ -27,7 +27,8 @@ export const Unit = styled.span`
 `;
 
 export const Expired = styled.span`
-  font-size: 20px;
+  padding-top: 8px;
+  font-size: 28px;
   font-weight: 500;
   text-transform: capitalize;
 `;

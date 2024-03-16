@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BtnOpen, Input, Option, Options, SvgIcon, Wrapper } from "./Selector.styled";
 import cities from "../../assets/cities.json";
 
-export const Selector = ({ handleSelector,  }) => {
+export const Selector = ({ handleSelector }) => {
   const [showList, setShowList] = useState(false);
   const [filtered, setFiltered] = useState(cities);
   const [filter, setFilter] = useState("");
@@ -16,14 +16,12 @@ export const Selector = ({ handleSelector,  }) => {
     setFilter(str);
     setShowList(false);
     setFiltered(cities);
-    // onChange(true);
   };
 
   return (
     <Wrapper>
       <Input type="text" name="city" placeholder="Please select a city" value={filter}
-        onChange={e => handleChange(e.target.value)}
-        onFocus={() => setShowList(true)} />
+        onChange={e => handleChange(e.target.value)} onFocus={() => setShowList(true)} />
       <BtnOpen
         type="button"
         onClick={() => {

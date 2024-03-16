@@ -42,6 +42,12 @@ export const Modal = ({ onSave, onClose }) => {
       setShowErrorMsg(true);
     }
   };
+  useEffect(() => {
+    if (!showErrorMsg) return;
+    if (city && startDate && endDate) {
+      setShowErrorMsg(false);
+    }
+  }, [city, endDate, showErrorMsg, startDate])
 
   return createPortal(
     <Backdrop onClick={handleBackdropClick}>
@@ -58,11 +64,11 @@ export const Modal = ({ onSave, onClose }) => {
           <Label>
             <Star>* </Star>Start date:
           </Label>
-          <DatePicker name={"start"} minDate={today} maxDate={endDate || lastDate} handleChange={setStartDate} />
+          <DatePicker name={"startDate"} minDate={today} maxDate={endDate || lastDate} handleChange={setStartDate} />
           <Label>
             <Star>* </Star>End date:
           </Label>
-          <DatePicker name={"end"} minDate={startDate || today} maxDate={lastDate} handleChange={setEndDate} />
+          <DatePicker name={"endDate"} minDate={startDate || today} maxDate={lastDate} handleChange={setEndDate} />
         </Fields>
         {showErrorMsg && <ErrorMsg>* All fields are required</ErrorMsg>}
         <Footer>
