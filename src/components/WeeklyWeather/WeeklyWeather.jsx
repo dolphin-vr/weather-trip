@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Day, Item, List, SvgIcon, Temper, Title, Weekly } from "./WeeklyWeather.styled";
+import { Baloon, Day, Item, List, SvgIcon, Temper, Title, Weekly } from "./WeeklyWeather.styled";
 import { serviceGetRangeWeather } from "../../shared/weaterApi";
 import { weekDay } from "../../shared/utils/dates";
 import { Pager } from "../Pager/Pager";
@@ -55,6 +55,7 @@ export const WeeklyWeather = ({ city, startDate, endDate }) => {
               <Temper>
                 {Math.round(el.tempmax)}° / {Math.round(el.tempmin)}°
               </Temper>
+              <Baloon className="slide-text">{el.description}</Baloon>
             </Item>
           ))}
         </List>
