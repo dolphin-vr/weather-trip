@@ -4,7 +4,7 @@
 
 ## Live page
 
-https://dolphin-vr.github.io/weather-trip/
+https://weather-trip.vercel.app
 
 ### Features
 
